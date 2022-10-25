@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import Form from "react-bootstrap/Form";
 import "./Login.css";
-import cover from "../../Assets/images/courses-bg.jpg";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => {
+        console.error("error", err);
+      });
+  }
   return (
     <div className="container-login">
       <div className="h-100 d-flex flex-column justify-content-center align-items-center">
@@ -42,7 +56,7 @@ const Login = () => {
           </button>
           <div className="d-flex flex-column flex-lg-row justify-content-around align-items-center mb-3">
               <Button
-                //   onClick={handleGoogleSignIn}
+                  onClick={handleGoogleSignIn}
                 className="mb-3 mb-lg-0"
                 variant="outline-light"
               >

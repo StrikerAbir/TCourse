@@ -5,12 +5,12 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from '../../Assets/images/online-learning.png'
 import './Header.css'
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun, FaUser } from "react-icons/fa";
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user,logOut } = useContext(AuthContext);
     
     const [mode, setMode] = useState('dark');
     const handleMode = (m) => {
@@ -18,7 +18,12 @@ const Header = () => {
     }
      const activeStyle = {
        border: "2px solid #f5a425",
-     };
+    };
+    
+    const handleLogOut = () => {
+      logOut();
+    };
+
     return (
       <div className="header-container ">
         <Navbar
@@ -96,7 +101,7 @@ const Header = () => {
                   to="/blogs"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
-                    Blogs
+                  Blogs
                 </NavLink>
               </Nav>
               <Nav className=" align-items-lg-center nav-a">
@@ -115,22 +120,58 @@ const Header = () => {
                   )}
                 </div>
 
-                <Link
-                  className={`${
-                    mode === "dark" ? "light-font" : "dark-font"
-                  }`}
-                  to="/login"
-                >
-                  Login
-                </Link>
-                <Link
-                  className={`${
-                    mode === "dark" ? "light-font" : "dark-font"
-                  }`}
-                  to="/register"
-                >
-                  Register
-                </Link>
+                <>
+                  {user?.uid ? (
+                    <div className="d-flex align-items-center">
+                      <div className="">
+                        <span className="me-2">{user?.displayName}</span>
+                        <Link
+                          to="/profile"
+                          title={user?.displayName}
+                        >
+
+                          {user?.photoURL ? (
+                            <Image
+                              style={{ height: "30px" }}
+                              roundedCircle
+                              src={user.photoURL}
+                            ></Image>
+                          ) : (
+                            <FaUser></FaUser>
+                          )}
+                        </Link>
+                      </div>
+                      <Link
+                        onClick={handleLogOut}
+                        className={`${
+                          mode === "dark" ? "light-font" : "dark-font"
+                        }`}
+                        to="/login"
+                      >
+                        Logout
+                      </Link>
+                    </div>
+                  ) : (
+                    <>
+                      <Link
+                        className={`${
+                          mode === "dark" ? "light-font" : "dark-font"
+                        }`}
+                        to="/login"
+                      >
+                        Login
+                      </Link>
+                      <Link
+                        className={`${
+                          mode === "dark" ? "light-font" : "dark-font"
+                        }`}
+                        to="/register"
+                      >
+                        Register
+                      </Link>
+                    </>
+                  )}
+                </>
               </Nav>
             </Navbar.Collapse>
           </Container>
