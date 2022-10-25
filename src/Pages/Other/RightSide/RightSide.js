@@ -28,9 +28,11 @@ const RightSide = ({ course }) => {
             <span className="orange-font">Duration:</span> {duration}
           </p>
         </div>
-        <button className="orangeBtn nav-Link">
-                  <Link to={`/courses/${id}`}>Details</Link>
-        </button>
+        <div className="nav-Link">
+          <Link to={`/courses/${id}`}>
+            <button className='orangeBtn'>Details</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

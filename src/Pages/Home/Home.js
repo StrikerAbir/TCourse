@@ -17,9 +17,8 @@ const Home = () => {
               </h1>
               <h2 className="text-white">An easy online learning platform.</h2>
               <div className="d-flex justify-content-center mt-5">
-                <button className="orangeBtn">
-                  <Link to='/courses'>Start Learning</Link>
-                </button>
+                
+                  <Link to='/courses'><button className='orangeBtn'>Start Learning</button></Link>
               </div>
             </div>
           </div>

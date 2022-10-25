@@ -9,7 +9,7 @@ const Details = () => {
     console.log(course);
     return (
       <div className="container-all">
-        <div className='d-flex justify-content-center m-3'>
+        <div className="d-flex justify-content-center m-3">
           <button className="orangeBtn nav-Link">
             <p className="m-0">Download PDF</p>
           </button>
@@ -41,9 +41,11 @@ const Details = () => {
               </p>
             </div>
 
-            <button className="orangeBtn nav-Link">
-              <Link to={`/checkout/${id}`}>Enrol Premium</Link>
-            </button>
+            <div className="nav-Link">
+              <Link to={`/checkout/${id}`}>
+                <button className="orangeBtn">Enrol Premium</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
