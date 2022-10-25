@@ -8,9 +8,8 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   return (
-    <div className="login-container">
-      <img className="cover-image" src={cover} alt="" />
-      <div className="form-container d-flex flex-column justify-content-center align-items-center">
+    <div className="container-login">
+      <div className="h-100 d-flex flex-column justify-content-center align-items-center">
         <div className="login-title">
           <h2>Login</h2>
         </div>
@@ -41,7 +40,7 @@ const Login = () => {
           <button type="submit" className="orangeBtn mb-4">
             Login
           </button>
-          <div className="d-lg-flex justify-content-around align-items-center mb-3">
+          <div className="d-flex flex-column flex-lg-row justify-content-around align-items-center mb-3">
               <Button
                 //   onClick={handleGoogleSignIn}
                 className="mb-3 mb-lg-0"

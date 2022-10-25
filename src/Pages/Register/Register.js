@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div className="login-container">
-      <img className="cover-image" src={cover} alt="" />
-      <div className="form-container d-flex flex-column justify-content-center align-items-center">
+    <div className="container-login">
+      <div className="h-100 d-flex flex-column justify-content-center align-items-center">
         <div className="login-title">
           <h2>Register</h2>
         </div>
