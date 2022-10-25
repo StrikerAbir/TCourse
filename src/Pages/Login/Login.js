@@ -4,7 +4,6 @@ import "./Login.css";
 import cover from "../../Assets/images/courses-bg.jpg";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {

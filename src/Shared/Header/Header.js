@@ -87,7 +87,16 @@ const Header = () => {
                   to="/faqs"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
-                  FAQs & Blogs
+                  FAQs
+                </NavLink>
+                <NavLink
+                  className={`me-lg-3 ${
+                    mode === "dark" ? "light-font" : "dark-font"
+                  }`}
+                  to="/blogs"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                    Blogs
                 </NavLink>
               </Nav>
               <Nav className=" align-items-lg-center nav-a">
