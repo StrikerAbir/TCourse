@@ -7,28 +7,31 @@ import RightSide from "../Other/RightSide/RightSide";
 const Courses = () => {
   const courses = useLoaderData();
   return (
-    <div>
-      <div className="container-all">
-        <div className="container">
+    <div className="container-all">
+      <div className="container">
           <h2 className="text-center fw-bold mb-4 orange-border p-2">
             Courses
           </h2>
         </div>
-        <Container>
-          <Row>
-            <Col lg="3">
+      <Container>
+        <Row className="g-2">
+          <Col className="border border-dark" lg="3">
+            {courses.map((course) => (
+              <LeftSide key={course.id} course={course}></LeftSide>
+            ))}
+          </Col>
+          <Col lg="8">
+            <Row className="g-2 justify-content-around" lg={3} sm="12">
               {courses.map((course) => (
-                <LeftSide key={course.id} course={course}></LeftSide>
+                <RightSide
+                  key={course.id}
+                  course={course}
+                ></RightSide>
               ))}
-            </Col>
-            <Col lg="9">
-              {courses.map((course) => (
-                <RightSide key={course.id} course={course}></RightSide>
-              ))}
-            </Col>
-          </Row>
-        </Container>
-      </div>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
