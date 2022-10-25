@@ -4,3 +4,12 @@
 .poppins-font {
   font-family: "Poppins", sans-serif;
 }
+.orange-font {
+    color: #f5a425;
+}
+.orange-border {
+    border: 2px solid #f5a425;
+}
+.orange-bg{
+    background-color: #f5a425;
+}

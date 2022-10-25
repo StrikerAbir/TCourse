@@ -15,25 +15,23 @@ const Header = () => {
     }
 
     return (
-      <div className="header-container">
+      <div className="header-container ">
         <Navbar
           collapseOnSelect
           expand="lg"
           variant={mode}
-          className={`w-100 h-100 ${mode==='dark'?'dark':'light'}`} 
+          className={`w-100 h-100 ${mode === "dark" ? "dark" : "light"}`}
         >
-          <Container>
+          <Container className="pt-2 pb-2">
             <Image style={{ height: "40px" }} src={logo}></Image>
-            <Navbar.Brand href="#home">TCOURSE</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="#features">Home</Nav.Link>
-                <Nav.Link href="#pricing">Courses</Nav.Link>
-                <Nav.Link href="#pricing">FAQs</Nav.Link>
-                <Nav.Link href="#pricing">Blogs</Nav.Link>
-              </Nav>
-              <Nav className=" align-items-center">
+            <Navbar.Brand
+              className="ms-lg-2 me-lg-5 m-0 fw-bold spacing bg-hover-primary"
+              href="#home"
+            >
+              <span className="orange-font">T</span>COURSE
+            </Navbar.Brand>
+            <div className="d-flex align-items-center">
+              <div className="d-lg-none">
                 {mode === "dark" ? (
                   <div
                     className="text-light me-3"
@@ -46,6 +44,40 @@ const Header = () => {
                     <FaMoon></FaMoon>
                   </div>
                 )}
+              </div>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            </div>
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link className="hover me-3" href="#features">
+                  Home
+                </Nav.Link>
+                <Nav.Link className="hover me-3" href="#pricing">
+                  Courses
+                </Nav.Link>
+                <Nav.Link className="hover me-3" href="#pricing">
+                  FAQs
+                </Nav.Link>
+                <Nav.Link className="hover me-3" href="#pricing">
+                  Blogs
+                </Nav.Link>
+              </Nav>
+              <Nav className=" align-items-lg-center">
+                <div className="d-none d-lg-block">
+                  {mode === "dark" ? (
+                    <div
+                      className="text-light me-3"
+                      onClick={() => handleMode("light")}
+                    >
+                      <FaSun></FaSun>
+                    </div>
+                  ) : (
+                    <div className="me-3" onClick={() => handleMode("dark")}>
+                      <FaMoon></FaMoon>
+                    </div>
+                  )}
+                </div>
+
                 <Nav.Link href="#deets">More deets</Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
                   Dank memes
