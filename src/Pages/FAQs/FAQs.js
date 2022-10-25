@@ -2,11 +2,11 @@ import React from 'react';
 
 const FAQs = () => {
     return (
-        <div>
-            <h2>
-                faqs
-            </h2>
+      <div className="container-all">
+        <div className="container mt-5">
+          <h2 className="text-center fw-bold mb-4 orange-border p-2">FAQs</h2>
         </div>
+      </div>
     );
 };
 
