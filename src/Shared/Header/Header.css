@@ -1,9 +1,4 @@
-.header-container{
-    /* position: fixed;
-    z-index: 12;
-    width: 100%;
-    top: 0; */
-}
+
 .dark{
 background-color: rgba(22,34,57,0.95);
 }
@@ -11,8 +6,20 @@ background-color: rgba(22,34,57,0.95);
    background-color: rgba(248,249,250,0.95);
 }
 .spacing{
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+    font-size: 28px;
 }
-.hover:hover, .hover:focus{
+.name{
+    text-decoration: none;
+    color: white;
+}
+.nav-a a:hover, .nav-a a:focus{
     border: 2px solid #f5a425;
+    color: rgba(248,249,250,1);
+}
+
+.nav-a a{
+    text-decoration: none;
+    color: rgba(248,249,250,0.55);
+    padding: 5px 15px;
 }

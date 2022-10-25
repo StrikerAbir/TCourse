@@ -5,7 +5,7 @@ import Header from '../../Shared/Header/Header';
 import './Main.css'
 const Main = () => {
     return (
-        <div>
+        <div className='poppins-font'>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
