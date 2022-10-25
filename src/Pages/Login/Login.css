@@ -1,0 +1,38 @@
+.login-container{
+    height: 100vh;
+    position: relative;
+}
+.cover-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.form-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.form{
+    width: 40%;
+    background-color: rgba(250,250,250,0.1);
+    padding: 60px 40px;
+    text-align: center
+}
+.login-title{
+    width: 40%;
+    color: #fff;
+    background-color: rgba(250,250,250,0.2);
+    padding: 10px 0;
+    text-align: center;
+    line-height: 24px;
+}
+
+@media screen and (max-width:992px){
+    .form {
+        width: 100%;
+    }
+    .login-title{
+        width: 100%;
+    }
+}
