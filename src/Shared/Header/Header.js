@@ -122,9 +122,9 @@ const Header = () => {
 
                 <>
                   {user?.uid ? (
-                    <div className="d-flex align-items-center">
-                      <div className="">
-                        <span className="me-2">{user?.displayName}</span>
+                    <div className="d-lg-flex align-items-center">
+                      <div>
+                        <span className="me-1">{user?.displayName}</span>
                         <Link
                           to="/profile"
                           title={user?.displayName}
