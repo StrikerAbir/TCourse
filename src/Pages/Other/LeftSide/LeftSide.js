@@ -1,13 +1,15 @@
 import React from 'react';
-import CourseLeft from './CourseLeft/CourseLeft';
+import { Link } from 'react-router-dom';
 
-const LeftSide = ({courses}) => {
+
+const LeftSide = ({ course }) => {
+    const { id, title } = course;
     return (
-        <div>
-            {
-                courses.map((course) =><CourseLeft key={course.id} course={course}></CourseLeft>)
-            }
-        </div>
+      <div className="mb-2 nav-link">
+        <Link to={`/courses/${id}`}>
+          <h5 className="p-2 orange-border">{title}</h5>
+        </Link>
+      </div>
     );
 };
 
