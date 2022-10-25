@@ -1,5 +1,4 @@
 import React from "react";
-import cover from "../../Assets/images/courses-bg.jpg";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 
