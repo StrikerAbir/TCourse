@@ -7,11 +7,24 @@
 .overlay{
     position: absolute;
     background-color: rgba(22,34,57,0.85);
-    top: 0;
-    left: 0;
+    top: 0;  
     width: 100%;
 }
 
 .title{
     height: 100vh;
+}
+.title h1{
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+.orangeBtn{
+    padding:10px;
+    background-color: #f5a425;
+    font-weight: 700;
+    color: white;
+}
+.orangeBtn a{
+    text-decoration: none;
+    color : white;
 }
