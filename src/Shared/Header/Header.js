@@ -24,7 +24,9 @@ const Header = () => {
         <Navbar
           collapseOnSelect
           expand="lg"
-          className={`w-100 h-100 ${mode === "dark" ? "dark light-font" : "light dark-font"}`}
+          className={`w-100 h-100 ${
+            mode === "dark" ? "dark light-font" : "light dark-font"
+          }`}
         >
           <Container className="pt-2 pb-2">
             <Image style={{ height: "40px" }} src={logo}></Image>
@@ -32,7 +34,12 @@ const Header = () => {
               className=" bebas-font ms-lg-3 me-lg-5 m-0 fw-bold spacing bg-hover-primary"
               to="/"
             >
-              <Link className={`name ${mode === "dark" ? "light-font" : "dark-font"}`} to="/">
+              <Link
+                className={`name ${
+                  mode === "dark" ? "light-font" : "dark-font"
+                }`}
+                to="/"
+              >
                 <span className="orange-font">T</span>COURSE
               </Link>
             </div>
@@ -56,21 +63,27 @@ const Header = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto nav-a">
                 <NavLink
-                  className={`me-lg-3 mt-3 mt-lg-0 ${mode === "dark" ? "light-font" : "dark-font"}`}
+                  className={`me-lg-3 mt-3 mt-lg-0 ${
+                    mode === "dark" ? "light-font" : "dark-font"
+                  }`}
                   to="/"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Home
                 </NavLink>
                 <NavLink
-                  className={`me-lg-3 ${mode === "dark" ? "light-font" : "dark-font"}`}
+                  className={`me-lg-3 ${
+                    mode === "dark" ? "light-font" : "dark-font"
+                  }`}
                   to="/courses"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Courses
                 </NavLink>
                 <NavLink
-                  className={`me-lg-3 ${mode === "dark" ? "light-font" : "dark-font"}`}
+                  className={`me-lg-3 ${
+                    mode === "dark" ? "light-font" : "dark-font"
+                  }`}
                   to="/faqs"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
@@ -93,8 +106,22 @@ const Header = () => {
                   )}
                 </div>
 
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                <Link
+                  className={`${
+                    mode === "dark" ? "light-font" : "dark-font"
+                  }`}
+                  to="/login"
+                >
+                  Login
+                </Link>
+                <Link
+                  className={`${
+                    mode === "dark" ? "light-font" : "dark-font"
+                  }`}
+                  to="/register"
+                >
+                  Register
+                </Link>
               </Nav>
             </Navbar.Collapse>
           </Container>

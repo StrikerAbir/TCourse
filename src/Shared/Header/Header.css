@@ -1,4 +1,9 @@
-
+.header-container{
+    position:fixed;
+    top:0;
+    z-index: 12;
+    width: 100%;
+}
 .dark{
 background-color: rgba(22,34,57,0.95);
 }

@@ -5,7 +5,7 @@ import './Home.css'
 
 const Home = () => {
     return (
-      <section className="position-relative">
+      <section className="home-container">
         <video autoPlay muted loop id="video-bg">
           <source src={video} type="video/mp4" />
         </video>
