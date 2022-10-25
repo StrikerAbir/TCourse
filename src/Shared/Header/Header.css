@@ -21,6 +21,7 @@ color: rgba(22,34,57,0.95);
 }
 .nav-a a:hover, .nav-a a:focus{
     border: 2px solid #f5a425;
+    color:#f5a425;
 }
 
 .nav-a a{
