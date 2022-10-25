@@ -9,14 +9,22 @@ const Courses = () => {
   return (
     <div>
       <div className="container-all">
-        <h2 className="text-center fw-bold mb-4 orange-border p-2">Courses</h2>
+        <div className="container">
+          <h2 className="text-center fw-bold mb-4 orange-border p-2">
+            Courses
+          </h2>
+        </div>
         <Container>
           <Row>
             <Col lg="3">
-              <LeftSide key={Math.random()} courses={courses}></LeftSide>
+              {courses.map((course) => (
+                <LeftSide key={course.id} course={course}></LeftSide>
+              ))}
             </Col>
             <Col lg="9">
-              <RightSide key={Math.random()} courses={courses}></RightSide>
+              {courses.map((course) => (
+                <RightSide key={course.id} course={course}></RightSide>
+              ))}
             </Col>
           </Row>
         </Container>
