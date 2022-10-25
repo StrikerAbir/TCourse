@@ -5,6 +5,8 @@ import Courses from "../Pages/Courses/Courses";
 import FAQs from "../Pages/FAQs/FAQs";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import Checkout from "../Pages/Other/Checkout/Checkout";
+import Details from "../Pages/Other/Details/Details";
 import Register from "../Pages/Register/Register";
 
 export const routes = createBrowserRouter([
@@ -37,6 +39,18 @@ export const routes = createBrowserRouter([
         path: "/blogs",
         element: <Blogs></Blogs>,
         loader: () => fetch("https://t-course-server.vercel.app/blogs"),
+      },
+      {
+        path: "/courses/:id",
+        element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`https://t-course-server.vercel.app/courses/${params.id}/`),
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
+        loader: ({ params }) =>
+          fetch(`https://t-course-server.vercel.app/courses/${params.id}/`),
       },
     ],
   },
