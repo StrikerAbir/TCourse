@@ -15,7 +15,7 @@ We created own server to provide own api. Which needed to load data for our site
 ### `Live Link : `
 *** 
 
- TCourse : [http://localhost:3000](http://localhost:3000) 
+ TCourse : [https://t-course.web.app](https://t-course.web.app) 
 
 *** 
 ### `Live api Server Link :`
@@ -42,3 +42,4 @@ We created own server to provide own api. Which needed to load data for our site
  * express
  * cors
  * vercel
+ * nodemon

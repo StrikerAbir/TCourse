@@ -11,7 +11,7 @@ const Home = () => {
         </video>
         <div className="overlay">
           <div className="title d-flex justify-content-center align-items-center">
-            <div className="">
+            <div className="text-center">
               <h1 className="fw-bold bebas-font text-white">
                 <span className="orange-font">T</span>COURSE
               </h1>
