@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Checkout from "../Pages/Other/Checkout/Checkout";
 import Details from "../Pages/Other/Details/Details";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://t-course-server.vercel.app/courses/${params.id}/`),
       },
