@@ -43,7 +43,7 @@ const Details = () => {
 
             <div className="nav-Link">
               <Link to={`/checkout/${id}`}>
-                <button className="orangeBtn">Enrol Premium</button>
+                <button className="orangeBtn">Enroll Premium</button>
               </Link>
             </div>
           </div>

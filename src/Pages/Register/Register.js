@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState(null);
-  const { createUser } = useContext(AuthContext);
+  const { createUser,updateUserProfile,verifyEmail } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,11 +21,25 @@ const Register = () => {
         console.log(user);
         form.reset();
         setError(null);
+        handleUpdateProfile(name, photoURL);
+        handleEmailVerification();
       })
       .catch((err) => {
         console.error("error", err);
         setError(err.message);
       });
+    
+     const handleUpdateProfile = (name, photoUrl) => {
+       const profile = { displayName: name, photoURL: photoUrl };
+       updateUserProfile(profile)
+         .then(() => {})
+         .catch((error) => console.error("error", error));
+     };
+     const handleEmailVerification = () => {
+       verifyEmail()
+         .then(() => {})
+         .catch((error) => console.error(error));
+     };
   }
   
 
@@ -66,7 +80,7 @@ const Register = () => {
           </Form.Group>
         )}
 
-          <button type="submit" className="orangeBtn mb-4">
+          <button type="submit" className="orangeBtn mb-4" >
             Register
           </button>
           <div>
