@@ -1,9 +1,13 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
   const course = useLoaderData();
-  const { title, price, level, duration } = course;
+    const { title, price, level, duration } = course;
+    const enroll = () => {
+        toast.success("Enroll Successful. Thank you.");
+    }
   return (
     <div className="container-all height d-flex justify-content-center align-items-center">
       <div className="form">
@@ -21,7 +25,7 @@ const Checkout = () => {
               <span className="orange-font">Price :</span> {price} tk
             </p>
                   </div>
-                  <button className='orangeBtn'>
+                  <button onClick={enroll} className='orangeBtn'>
                       Enroll
                   </button>
         </div>

@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState(null);
@@ -52,11 +53,11 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError(null);
-        navigate(from, { replace: true });
-        // if (user.emailVerified) {
-        // } else {
-        //   toast.error("Your email is not verified. Please varify email");
-        // }
+        if (user.emailVerified) {
+          navigate(from, { replace: true });
+        } else {
+          toast.error("Your email is not verified. Please varify email");
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -91,12 +92,12 @@ const Login = () => {
             />
           </Form.Group>
           {error !== null && (
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3 orange-border">
               <Form.Text className="text-danger">{error}</Form.Text>
             </Form.Group>
           )}
 
-          <button type="submit" className="orangeBtn mb-4">
+          <button type="submit" className="orangeBtn mb-4 w-100">
             Login
           </button>
           <div className="d-flex flex-column flex-lg-row justify-content-around align-items-center mb-3">

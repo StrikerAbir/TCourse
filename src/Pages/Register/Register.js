@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState(null);
@@ -23,6 +24,7 @@ const Register = () => {
         setError(null);
         handleUpdateProfile(name, photoURL);
         handleEmailVerification();
+        toast.success("Please verify your email address. Then Login.",{duration:5000});
       })
       .catch((err) => {
         console.error("error", err);
@@ -75,17 +77,17 @@ const Register = () => {
             />
           </Form.Group>
           {error !== null && (
-          <Form.Group className="mb-3">
-            <Form.Text className="text-danger">{error}</Form.Text>
-          </Form.Group>
-        )}
+            <Form.Group className="mb-3 orange-border">
+              <Form.Text className="text-danger ">{error}</Form.Text>
+            </Form.Group>
+          )}
 
-          <button type="submit" className="orangeBtn mb-4" >
+          <button type="submit" className="orangeBtn mb-4 w-100">
             Register
           </button>
           <div>
             <p className="text-white">
-              Already Registered? <Link to='/login'>Login</Link>
+              Already Registered? <Link to="/login">Login</Link>
             </p>
           </div>
         </Form>
