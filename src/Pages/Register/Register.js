@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState(null);
+  const { createUser } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError(null);
+      })
+      .catch((err) => {
+        console.error("error", err);
+        setError(err.message);
+      });
+  }
+  
+
+  
   return (
     <div className="container-login">
       <div className="h-100 d-flex flex-column justify-content-center align-items-center">
         <div className="login-title">
           <h2>Register</h2>
         </div>
-        <Form className="form ms-3 me-3">
+        <Form className="form ms-3 me-3" onSubmit={handleSubmit}>
           <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Control name="name" type="text" placeholder="Your name" />
           </Form.Group>
@@ -33,11 +60,11 @@ const Register = () => {
               required
             />
           </Form.Group>
-          {/* {error !== null && (
+          {error !== null && (
           <Form.Group className="mb-3">
             <Form.Text className="text-danger">{error}</Form.Text>
           </Form.Group>
-        )} */}
+        )}
 
           <button type="submit" className="orangeBtn mb-4">
             Register

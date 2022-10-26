@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import "./Login.css";
 import { Link } from "react-router-dom";
@@ -8,7 +8,8 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { providerLogin } = useContext(AuthContext);
+  const [error, setError] = useState(null);
+  const { providerLogin, signIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider()
 
@@ -33,13 +34,40 @@ const Login = () => {
         console.error('error', err);
     })
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError(null);
+        // if (user.emailVerified) {
+        //   navigate(from, { replace: true });
+        // } else {
+        //   toast.error("Your email is not verified. Please varify email");
+        // }
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+      })
+      // .finally(() => {
+      //   setLoading(false);
+      // });
+  }
   return (
     <div className="container-login">
       <div className="h-100 d-flex flex-column justify-content-center align-items-center">
         <div className="login-title">
           <h2>Login</h2>
         </div>
-        <Form className="form ms-3 me-3">
+        <Form className="form ms-3 me-3" onSubmit={handleSubmit}>
           <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Control
               name="email"
@@ -57,11 +85,11 @@ const Login = () => {
               required
             />
           </Form.Group>
-          {/* {error !== null && (
+          {error !== null && (
           <Form.Group className="mb-3">
             <Form.Text className="text-danger">{error}</Form.Text>
           </Form.Group>
-        )} */}
+        )}
 
           <button type="submit" className="orangeBtn mb-4">
             Login
