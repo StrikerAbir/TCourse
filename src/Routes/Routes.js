@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Checkout from "../Pages/Other/Checkout/Checkout";
 import Details from "../Pages/Other/Details/Details";
 import NotFound from "../Pages/Other/NotFound/NotFound";
+import Profile from "../Pages/Other/Profile/Profile";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 
@@ -58,10 +59,14 @@ export const routes = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://t-course-server.vercel.app/courses/${params.id}/`),
       },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
+      },
     ],
-    },
-    {
-        path: '*',
-        element:<NotFound></NotFound>
-    }
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
+  },
 ]);
