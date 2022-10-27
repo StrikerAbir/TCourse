@@ -48,9 +48,9 @@ const AuthProvider = ({ children }) => {
     };
     
     // email varification
-    const verifyEmail = () => {
-      return sendEmailVerification(auth.currentUser);
-    };
+    // const verifyEmail = () => {
+    //   return sendEmailVerification(auth.currentUser);
+    // };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user,loading,setLoading, providerLogin, logOut, createUser, signIn, updateUserProfile,verifyEmail };
+  const authInfo = { user,loading,setLoading, providerLogin, logOut, createUser, signIn, updateUserProfile};
   return (
     <div>
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

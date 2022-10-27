@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState(null);
-  const { createUser,updateUserProfile,verifyEmail } = useContext(AuthContext);
-
+  const { createUser,updateUserProfile } = useContext(AuthContext);
+ const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -23,8 +22,10 @@ const Register = () => {
         form.reset();
         setError(null);
         handleUpdateProfile(name, photoURL);
-        handleEmailVerification();
-        toast.success("Please verify your email address. Then Login.",{duration:5000});
+        navigate('/')
+        window.location.reload();
+        // handleEmailVerification();
+        // toast.success("Please verify your email address. Then Login.",{duration:5000});
       })
       .catch((err) => {
         console.error("error", err);
@@ -37,11 +38,11 @@ const Register = () => {
          .then(() => {})
          .catch((error) => console.error("error", error));
      };
-     const handleEmailVerification = () => {
-       verifyEmail()
-         .then(() => {})
-         .catch((error) => console.error(error));
-     };
+    //  const handleEmailVerification = () => {
+    //    verifyEmail()
+    //      .then(() => {})
+    //      .catch((error) => console.error(error));
+    //  };
   }
   
 

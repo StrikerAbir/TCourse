@@ -71,7 +71,7 @@ const Header = () => {
                   className={`me-lg-3 mt-3 mt-lg-0 ${
                     mode === "dark" ? "light-font" : "dark-font"
                   }`}
-                  to="/"
+                  to="/home"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Home
