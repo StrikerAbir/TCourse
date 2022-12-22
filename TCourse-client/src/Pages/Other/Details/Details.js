@@ -33,7 +33,7 @@ const Details = () => {
         </Pdf>
       </div>
       <div className="container w-lg-50">
-        <img className="card-image" src={image} alt="" />
+        <img className="detail-image" src={image} alt="" />
         <div className="m-3">
           <h5 className="mb-2 fw-bold">{title}</h5>
           <p className="mb-2">{description}</p>
